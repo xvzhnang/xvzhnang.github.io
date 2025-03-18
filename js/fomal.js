@@ -3171,7 +3171,7 @@ let EEEDog = "url(https://api.yimian.xyz/img?type=moe&size=1920x1080)";
 // 随机美图cdn.seovx.com
 let seovx = "url(https://cdn.seovx.com/?mom=302)";
 // picsum随机
-let picsum = "url(https://picsum.photos/1920/1080.webp)";
+let picsum = "url(https://raw.githubusercontent.com/xvzhnang/blog-picture/refs/heads/main/img/1080.webp)";
 // 小歪二次元
 // let waiDongman = "url(https://api.ixiaowai.cn/api/api.php)";
 //  小歪高清壁纸
@@ -3189,10 +3189,10 @@ if (localStorage.getItem("blogbg") != undefined) {
   setBg(localStorage.getItem("blogbg"));
 } else {
   document.getElementById("defineBg").innerText = `:root{
-    --default-bg: url(https://lskypro.acozycotage.net/Fomalhaut/img/dm14.webp);
-    --darkmode-bg:url(https://lskypro.acozycotage.net/Fomalhaut/img/yuanshen1.webp);
-    --mobileday-bg: url(https://lskypro.acozycotage.net/Fomalhaut/img/snow.webp);
-    --mobilenight-bg: url(https://lskypro.acozycotage.net/Fomalhaut/img/mb8.webp);
+    --default-bg: url(https://raw.githubusercontent.com/xvzhnang/blog-picture/refs/heads/main/img/dm14.webp);
+    --darkmode-bg:url(https://raw.githubusercontent.com/xvzhnang/blog-picture/refs/heads/main/img/yuanshen1.webp);
+    --mobileday-bg: url(https://raw.githubusercontent.com/xvzhnang/blog-picture/refs/heads/main/img/snow.webp);
+    --mobilenight-bg: url(https://raw.githubusercontent.com/xvzhnang/blog-picture/refs/heads/main/img/mb8.webp);
   }`;
 }
 // 切换背景主函数
@@ -3422,7 +3422,7 @@ function createWinbox() {
 <h3>1. 二次元</h3>
 <details class="folding-tag" cyan><summary> 查看二次元背景 </summary>
               <div class='content'>
-              <div class="bgbox"><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://lskypro.acozycotage.net/Fomalhaut/img/home_bg.webp)" class="imgbox" onclick="changeBg('url(https://lskypro.acozycotage.net/Fomalhaut/img/home_bg.webp)')"></a></div>
+              <div class="bgbox"><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://raw.githubusercontent.com/xvzhnang/blog-picture/refs/heads/main/img/home_bg.webp)" class="imgbox" onclick="changeBg('url(https://raw.githubusercontent.com/xvzhnang/blog-picture/refs/heads/main/img/home_bg.webp)')"></a></div>
               </div>
             </details>
 
@@ -3431,7 +3431,7 @@ function createWinbox() {
 
 <details class="folding-tag" cyan><summary> 查看风景背景 </summary>
               <div class='content'>
-              <div class="bgbox"><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://lskypro.acozycotage.net/Fomalhaut/img/fj1.webp)" class="imgbox" onclick="changeBg('url(https://lskypro.acozycotage.net/Fomalhaut/img/fj1.webp)')"></a></div>
+              <div class="bgbox"><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://raw.githubusercontent.com/xvzhnang/blog-picture/refs/heads/main/img/fj1.webp)" class="imgbox" onclick="changeBg('url(https://raw.githubusercontent.com/xvzhnang/blog-picture/refs/heads/main/img/fj1.webp)')"></a></div>
               </div>
             </details>
 
@@ -3439,7 +3439,7 @@ function createWinbox() {
 
 <details class="folding-tag" cyan><summary> 查看萌宠背景 </summary>
               <div class='content'>
-              <div class="bgbox"><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://lskypro.acozycotage.net/Fomalhaut/img/mc1.webp)" class="imgbox" onclick="changeBg('url(https://lskypro.acozycotage.net/Fomalhaut/img/mc1.webp)')"></a></div>
+              <div class="bgbox"><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://raw.githubusercontent.com/xvzhnang/blog-picture/refs/heads/main/img/mc1.webp)" class="imgbox" onclick="changeBg('url(https://raw.githubusercontent.com/xvzhnang/blog-picture/refs/heads/main/img/mc1.webp)')"></a></div>
               </div>
             </details>
 
@@ -3463,7 +3463,7 @@ function createWinbox() {
 <h3>6. 适配手机</h3>
 <details class="folding-tag" cyan><summary> 查看适配手机的背景 </summary>
               <div class='content'>
-              <div class="bgbox"><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://lskypro.acozycotage.net/Fomalhaut/img/mb4.webp)" class="pimgbox" onclick="changeBg('url(https://lskypro.acozycotage.net/Fomalhaut/img/mb4.webp)')"></a></div>
+              <div class="bgbox"><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://raw.githubusercontent.com/xvzhnang/blog-picture/refs/heads/main/img/mb4.webp)" class="pimgbox" onclick="changeBg('url(https://raw.githubusercontent.com/xvzhnang/blog-picture/refs/heads/main/img/mb4.webp)')"></a></div>
               </div>
             </details>
 
