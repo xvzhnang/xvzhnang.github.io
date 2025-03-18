@@ -11,24 +11,6 @@
   </url>
   
   <url>
-    <loc>https://www.xvzhang.fun/life/movies/index.html</loc>
-    
-    <lastmod>2025-03-16</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.xvzhang.fun/life/music/index.html</loc>
-    
-    <lastmod>2025-03-16</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.xvzhang.fun/personal/about/index.html</loc>
     
     <lastmod>2025-03-16</lastmod>
@@ -48,6 +30,24 @@
   
   <url>
     <loc>https://www.xvzhang.fun/personal/love/index.html</loc>
+    
+    <lastmod>2025-03-16</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.xvzhang.fun/life/movies/index.html</loc>
+    
+    <lastmod>2025-03-16</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.xvzhang.fun/life/music/index.html</loc>
     
     <lastmod>2025-03-16</lastmod>
     
