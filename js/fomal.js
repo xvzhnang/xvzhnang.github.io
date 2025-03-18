@@ -2786,12 +2786,12 @@ function createtime() {
   var now = new Date();
 
   // 旅行者1号距离计算
-  var start = new Date("2025/03/18 11:30:00");
+  var start = new Date("2025/03/18 00:00:00");
   var dis = Math.trunc(23400000000 + ((now - start) / 1000) * 17); // 计算当前距离
   var unit = (dis / 149600000).toFixed(6); // 转换为天文单位（AU）
 
   // 网站运行时间计算
-  var grt = new Date("2025/03/18 00:00:00");
+  var grt = new Date("2025/03/18 17:00:00");
   var diff = Math.floor((now - grt) / 1000); // 计算总秒数
   var dnum = Math.floor(diff / 86400); // 天数
   var hnum = String(Math.floor((diff % 86400) / 3600)).padStart(2, "0"); // 小时
