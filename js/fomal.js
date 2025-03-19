@@ -71,9 +71,9 @@ function scrollToTop() {
 //get请求
 $.ajax({
   type: 'get',
-  url: 'https://api.map.baidu.com/location/ip',
+  url: 'https://apis.map.qq.com/ws/location/v1/ip',
   data: {
-    ak: 'G9k3ZyU3iRcBp5H8S5d80VmugPO6GW7c',  // 这里要写你的KEY!!!
+    key: '76ABZ-Q6FWU-DO2VI-GU36Z-2DJKO-JRFEP',  // 这里要写你的KEY!!!
     output: 'jsonp',
   },
   dataType: 'jsonp',
