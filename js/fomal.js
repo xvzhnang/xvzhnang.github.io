@@ -3189,8 +3189,8 @@ if (localStorage.getItem("blogbg") != undefined) {
   setBg(localStorage.getItem("blogbg"));
 } else {
   document.getElementById("defineBg").innerText = `:root{
-    --default-bg: url(https://raw.githubusercontent.com/xvzhnang/blog-picture/refs/heads/main/img/dm14.webp);
-    --darkmode-bg:url(https://raw.githubusercontent.com/xvzhnang/blog-picture/refs/heads/main/img/yuanshen1.webp);
+    --default-bg: url(https://raw.githubusercontent.com/xvzhnang/blog-picture/refs/heads/main/img/home_bg.webp);
+    --darkmode-bg:url(https://raw.githubusercontent.com/xvzhnang/blog-picture/refs/heads/main/img/dark_mode.webp);
     --mobileday-bg: url(https://raw.githubusercontent.com/xvzhnang/blog-picture/refs/heads/main/img/snow.webp);
     --mobilenight-bg: url(https://raw.githubusercontent.com/xvzhnang/blog-picture/refs/heads/main/img/mb8.webp);
   }`;
