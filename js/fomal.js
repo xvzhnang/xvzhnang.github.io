@@ -69,88 +69,95 @@ function scrollToTop() {
 
 /* 欢迎信息 start */
 //get请求
-// 获取用户 IP 及地理位置
-function fetchLocation(callback) {
-  $.ajax({
-      type: 'get',
-      url: 'https://apis.map.qq.com/ws/location/v1/ip',
-      data: {
-          key: '76ABZ-Q6FWU-DO2VI-GU36Z-2DJKO-JRFEP', // 替换成你的 KEY
-          output: 'jsonp',
-      },
-      dataType: 'jsonp',
-      success: callback,
-      error: function () {
-          console.error('无法获取位置信息');
-      }
-  });
-}
-
-// 计算两点间距离（单位：公里）
+$.ajax({
+  type: 'get',
+  url: 'https://apis.map.qq.com/ws/location/v1/ip',
+  data: {
+    key: '76ABZ-Q6FWU-DO2VI-GU36Z-2DJKO-JRFEP',  // 这里要写你的KEY!!!
+    output: 'jsonp',
+  },
+  dataType: 'jsonp',
+  success: function (res) {
+    if (res && res.result) {
+      showWelcome(res.result);
+    }
+  }
+})
 function getDistance(e1, n1, e2, n2) {
   const R = 6371;
-  const toRad = deg => deg * Math.PI / 180;
-  
-  let a = toRad(n1), b = toRad(n2), dLat = toRad(n2 - n1), dLng = toRad(e2 - e1);
-  let h = Math.sin(dLat / 2) ** 2 + Math.cos(a) * Math.cos(b) * Math.sin(dLng / 2) ** 2;
-  return Math.round(2 * R * Math.asin(Math.sqrt(h)));
-}
-
-// 生成欢迎信息
-function generateWelcome(ipLocation) {
-  if (!ipLocation || !ipLocation.result) {
-      console.error('位置数据无效');
-      return;
+  const toRad = deg => deg * (Math.PI / 180);
+  const a = { x: Math.cos(toRad(n1)) * Math.cos(toRad(e1)), y: Math.cos(toRad(n1)) * Math.sin(toRad(e1)), z: Math.sin(toRad(n1)) };
+  const b = { x: Math.cos(toRad(n2)) * Math.cos(toRad(e2)), y: Math.cos(toRad(n2)) * Math.sin(toRad(e2)), z: Math.sin(toRad(n2)) };
+  return Math.round(Math.asin(Math.hypot(a.x - b.x, a.y - b.y, a.z - b.z) / 2) * 2 * R);
   }
-  
-  let data = ipLocation.result;
-  let { nation, province, city, district, ip, location } = data.ad_info;
-  let userPos = `${province || ''} ${city || ''} ${district || ''}`.trim();
-  let dist = getDistance(103.718953, 36.104493, location.lng, location.lat);
-  
-  let messages = {
-      "日本": "よろしく，一起去看樱花吗",
-      "美国": "Let us live in peace!",
-      "英国": "想同你一起夜乘伦敦眼",
-      "俄罗斯": "干了这瓶伏特加！",
-      "法国": "C'est La Vie",
-      "德国": "Die Zeit verging im Fluge.",
-      "澳大利亚": "一起去大堡礁吧！",
-      "加拿大": "拾起一片枫叶赠予你",
-      "中国": {
-          "北京市": "北——京——欢迎你~~~",
-          "天津市": "讲段相声吧。",
-          "江苏省": { "南京市": "这是我挺想去的城市啦。", "苏州市": "上有天堂，下有苏杭。", "default": "散装是必须要散装的。" },
-          "河南省": { "郑州市": "豫州之域，天地之中。", "洛阳市": "洛阳牡丹甲天下。", "default": "可否带我品尝河南烩面啦？" },
-          "广东省": "老板来两斤福建人。",
-          "default": "带我去你的城市逛逛吧！"
-      }
+
+function showWelcome() {
+  const { location, ad_info, ip } = locationData;
+  const dist = getDistance(103.718953, 36.104493, location.lng, location.lat); // 替换为你的经纬度
+  let pos = ad_info.nation, posdesc = "带我去你的国家逛逛吧。";
+  //根据国家、省份、城市信息自定义欢迎语
+  const welcomeMessages = {
+    "日本": "よろしく，一起去看樱花吗",
+    "美国": "Let us live in peace!",
+    "英国": "想同你一起夜乘伦敦眼",
+    "俄罗斯": "干了这瓶伏特加！",
+    "法国": "C'est La Vie",
+    "德国": "Die Zeit verging im Fluge.",
+    "澳大利亚": "一起去大堡礁吧！",
+    "加拿大": "拾起一片枫叶赠予你",
+    "中国": () => {
+      pos = `${ad_info.province} ${ad_info.city} ${ad_info.district}`;
+      const provinceMessages = {
+        "北京市": "北——京——欢迎你~~~",
+        "天津市": "讲段相声吧。",
+        "上海市": "众所周知，中国只有两个城市。",
+        "广东省": "老板来两斤福建人。",
+        "河南省": {
+          "郑州市": "豫州之域，天地之中。",
+          "南阳市": "臣本布衣，躬耕于南阳。",
+          "驻马店市": "峰峰有奇石，石石挟仙气。",
+          "开封市": "刚正不阿包青天。",
+          "洛阳市": "洛阳牡丹甲天下。",
+          "default": "可否带我品尝河南烩面啦？"
+        },
+        "江苏省": {
+          "南京市": "这是我挺想去的城市啦。",
+          "苏州市": "上有天堂，下有苏杭。",
+          "default": "散装是必须要散装的。"
+        }
+      };
+      return provinceMessages[ad_info.province]?.[ad_info.city] || provinceMessages[ad_info.province] || "带我去你的城市逛逛吧！";
+    },
+    "香港特别行政区": "永定贼有残留地鬼嚎，迎击光非岁玉。",
+    "澳门特别行政区": "性感荷官，在线发牌。",
   };
-  
-  let posdesc = messages[nation] || "带我去你的国家逛逛吧。";
-  if (nation === "中国" && messages["中国"][province]) {
-      posdesc = messages["中国"][province][city] || messages["中国"][province]["default"] || messages["中国"]["default"];
+
+  posdesc = typeof welcomeMessages[pos] === "function" ? welcomeMessages[pos]() : welcomeMessages[pos] || posdesc;
+
+
+  //根据本地时间切换欢迎语
+  const hour = new Date().getHours();
+  const timeMessages = [
+    { range: [5, 11], text: "上午好，一日之计在于晨！" },
+    { range: [11, 13], text: "中午好，该摸鱼吃午饭了。" },
+    { range: [13, 15], text: "下午好，懒懒地睡个午觉吧！" },
+    { range: [15, 16], text: "三点几啦，一起饮茶呀！" },
+    { range: [16, 19], text: "夕阳无限好！" },
+    { range: [19, 24], text: "晚上好，夜生活嗨起来！" },
+    { range: [0, 5], text: "夜深了，早点休息，少熬夜。" }
+  ];
+  const timeChange = timeMessages.find(({ range }) => hour >= range[0] && hour < range[1])?.text || "你好！";
+
+  try {
+    document.getElementById("welcome-info").innerHTML =
+      `<b><center>🎉 欢迎信息 🎉</center>&emsp;&emsp;欢迎来自 <span style="color:var(--theme-color)">${pos}</span> 的小伙伴，${timeChange}您现在距离站长约 <span style="color:var(--theme-color)">${dist}</span> 公里，当前的IP地址为： <span style="color:var(--theme-color)">${ip}</span>， ${posdesc}</b>`;
+  } catch (err) {
+    console.warn("Pjax无法获取#welcome-info元素");
   }
-  
-  let timeGreeting = (() => {
-      let h = new Date().getHours();
-      if (h >= 5 && h < 11) return "上午好，一日之计在于晨！";
-      if (h >= 11 && h < 13) return "中午好，该摸鱼吃午饭了。";
-      if (h >= 13 && h < 15) return "下午好，懒懒地睡个午觉吧！";
-      if (h >= 15 && h < 16) return "三点几啦，一起饮茶呀！";
-      if (h >= 16 && h < 19) return "夕阳无限好！";
-      if (h >= 19 && h < 24) return "晚上好，夜生活嗨起来！";
-      return "夜深了，早点休息，少熬夜。";
-  })();
-  
-  document.getElementById("welcome-info").innerHTML =
-      `<b><center>🎉 欢迎信息 🎉</center>&emsp;&emsp;欢迎来自 <span style="color:var(--theme-color)">${userPos}</span> 的小伙伴，
-      ${timeGreeting} 您现在距离站长约 <span style="color:var(--theme-color)">${dist}</span> 公里，
-      当前的IP地址为：<span style="color:var(--theme-color)">${ip}</span>， ${posdesc}</b>`;
 }
 
-window.onload = () => fetchLocation(generateWelcome);
-document.addEventListener('pjax:complete', () => fetchLocation(generateWelcome));
+window.onload = fetchLocation;
+document.addEventListener('pjax:complete', fetchLocation);
 
 /* 欢迎信息 end */
 
