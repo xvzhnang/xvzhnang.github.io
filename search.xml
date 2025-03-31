@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>archlinux转nixos之路</title>
+      <link href="/posts/bad609dd.html"/>
+      <url>/posts/bad609dd.html</url>
+      
+        <content type="html"><![CDATA[<h1>转战nixos</h1><p><strong>生命在于生生不息的折腾，玩电脑只为了三件事，折腾、折腾、还特么的是折腾！！！</strong></p><h2 id="为什么想换nixos">为什么想换nixos</h2><p>主力机从win11转到archlinux也已经有小一年了，基本系统方面配置差不多了，但是用的时候怎么说呢，爽是真的爽，arch邪教你以为😄，要啥软件就直接<code>paru -S pkg</code>,开箱即用，软件源不得不说真的光呀。那为什么想换呢，因为用起来有点黑洞的感觉，就是我做过什么设置，aur做过什么设置，删除包之后等等，我都有点儿云里雾里的（大佬如看到别喷，我是菜鸡🐶），然后就看到nixos这么一个发行版，感觉好像不错，所有的配置可以使用一个配置文件搞定，而且可复现性极高，然后我再去软件源里看了看，哟，还不错，我要用的基本都有，那ok了，直接开始折腾。不过折腾之前呢，先打打前置知识，因为这个发行版跟常规发行版不太一样。所以先慢点折腾系统，学点儿基础，再上手。顺便也等着最近手头事忙完，电脑彻底闲置下来之后，再进行折腾。</p><h2 id="nix语言">nix语言</h2>]]></content>
+      
+      
+      <categories>
+          
+          <category> linux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> linux, 折腾 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Rust初学</title>
       <link href="/posts/dda744fb.html"/>
       <url>/posts/dda744fb.html</url>
