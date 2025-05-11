@@ -191,7 +191,7 @@
   </url>
   
   <url>
-    <loc>https://www.xvzhang.fun/life/games/index.html</loc>
+    <loc>https://www.xvzhang.fun/life/movies/index.html</loc>
     
     <lastmod>2025-05-04</lastmod>
     
@@ -200,7 +200,7 @@
   </url>
   
   <url>
-    <loc>https://www.xvzhang.fun/life/movies/index.html</loc>
+    <loc>https://www.xvzhang.fun/life/games/index.html</loc>
     
     <lastmod>2025-05-04</lastmod>
     
@@ -323,14 +323,14 @@
 
   
   <url>
-    <loc>https://www.xvzhang.fun/categories/CTF/</loc>
+    <loc>https://www.xvzhang.fun/categories/%E7%AE%97%E6%B3%95/</loc>
     <lastmod>2025-05-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://www.xvzhang.fun/categories/%E7%AE%97%E6%B3%95/</loc>
+    <loc>https://www.xvzhang.fun/categories/CTF/</loc>
     <lastmod>2025-05-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
