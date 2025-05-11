@@ -128,15 +128,6 @@
   </url>
   
   <url>
-    <loc>https://www.xvzhang.fun/social/fcircle/index.html</loc>
-    
-    <lastmod>2025-05-04</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.xvzhang.fun/site/time/index.html</loc>
     
     <lastmod>2025-05-04</lastmod>
@@ -146,7 +137,7 @@
   </url>
   
   <url>
-    <loc>https://www.xvzhang.fun/personal/bb/index.html</loc>
+    <loc>https://www.xvzhang.fun/social/fcircle/index.html</loc>
     
     <lastmod>2025-05-04</lastmod>
     
@@ -165,6 +156,15 @@
   
   <url>
     <loc>https://www.xvzhang.fun/personal/love/index.html</loc>
+    
+    <lastmod>2025-05-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.xvzhang.fun/personal/bb/index.html</loc>
     
     <lastmod>2025-05-04</lastmod>
     
