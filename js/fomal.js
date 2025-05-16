@@ -99,7 +99,7 @@ function getDistance(e1, n1, e2, n2) {
 
 function showWelcome() {
 
-  let dist = getDistance(36.101731, 103.724637, ipLoacation.result.location.lng, ipLoacation.result.location.lat); //这里换成自己的经纬度
+  let dist = getDistance(36.0647, 103.8397, ipLoacation.result.location.lng, ipLoacation.result.location.lat); //这里换成自己的经纬度
   let pos = ipLoacation.result.ad_info.nation;
   let ip;
   let posdesc;
@@ -3165,7 +3165,7 @@ if (localStorage.getItem("blogbg") != undefined) {
   setBg(localStorage.getItem("blogbg"));
 } else {
   document.getElementById("defineBg").innerText = `:root{
-    --default-bg: url(https://cdn.jsdelivr.net/gh/xvzhnang/blog-picture@main/img/dm14.webp);
+    --default-bg: url(https://cdn.jsdelivr.net/gh/xvzhnang/blog-picture@main/img/home_bg.webp);
     --darkmode-bg:url(https://cdn.jsdelivr.net/gh/xvzhnang/blog-picture@main/img/yuanshen1.webp);
     --mobileday-bg: url(https://cdn.jsdelivr.net/gh/xvzhnang/blog-picture@main/img/snow.webp);
     --mobilenight-bg: url(https://cdn.jsdelivr.net/gh/xvzhnang/blog-picture@main/img/mb8.webp);
