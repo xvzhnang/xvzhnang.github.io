@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Ne0XSec`s blog</title>
-  <icon>https://xvzhnang.github.io/img/avatar.png</icon>
+  <icon>https://blog.ne0xsec.cn/img/avatar.png</icon>
   
-  <link href="https://xvzhnang.github.io/atom.xml" rel="self"/>
+  <link href="https://blog.ne0xsec.cn/atom.xml" rel="self"/>
   
-  <link href="https://xvzhnang.github.io/"/>
+  <link href="https://blog.ne0xsec.cn/"/>
   <updated>2025-12-15T07:45:17.094Z</updated>
-  <id>https://xvzhnang.github.io/</id>
+  <id>https://blog.ne0xsec.cn/</id>
   
   <author>
     <name>序章</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="https://xvzhnang.github.io/2025/12/15/hello-world/"/>
-    <id>https://xvzhnang.github.io/2025/12/15/hello-world/</id>
+    <link href="https://blog.ne0xsec.cn/posts/undefined/"/>
+    <id>https://blog.ne0xsec.cn/posts/undefined/</id>
     <published>2025-12-15T07:45:17.094Z</published>
     <updated>2025-12-15T07:45:17.094Z</updated>
     
