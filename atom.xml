@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Ne0XSec`s blog</title>
-  <icon>https://blog.ne0xsec.cn/img/avatar.png</icon>
+  <icon>https://blog.ne0xsec.cn/img/favicon.png</icon>
   
   <link href="https://blog.ne0xsec.cn/atom.xml" rel="self"/>
   
@@ -18,8 +18,8 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="https://blog.ne0xsec.cn/posts/undefined/"/>
-    <id>https://blog.ne0xsec.cn/posts/undefined/</id>
+    <link href="https://blog.ne0xsec.cn/posts/3eeb/"/>
+    <id>https://blog.ne0xsec.cn/posts/3eeb/</id>
     <published>2025-12-15T07:45:17.094Z</published>
     <updated>2025-12-15T07:45:17.094Z</updated>
     
