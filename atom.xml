@@ -6,7 +6,7 @@
   <link href="https://blog.ne0xsec.cn/atom.xml" rel="self"/>
   
   <link href="https://blog.ne0xsec.cn/"/>
-  <updated>2025-12-16T07:03:28.805Z</updated>
+  <updated>2025-12-16T14:09:15.412Z</updated>
   <id>https://blog.ne0xsec.cn/</id>
   
   <author>
@@ -15,6 +15,21 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>【工具合集 | BurpSuite】BurpSuite的安装与使用</title>
+    <link href="https://blog.ne0xsec.cn/posts/aefb/"/>
+    <id>https://blog.ne0xsec.cn/posts/aefb/</id>
+    <published>2025-12-16T08:03:12.000Z</published>
+    <updated>2025-12-16T14:09:15.412Z</updated>
+    
+    
+    
+    
+    
+    <category term="工具合集" scheme="https://blog.ne0xsec.cn/tags/%E5%B7%A5%E5%85%B7%E5%90%88%E9%9B%86/"/>
+    
+  </entry>
   
   <entry>
     <title>Hello World</title>
