@@ -38,7 +38,7 @@
     <link href="https://blog.ne0xsec.cn/posts/aefb/"/>
     <id>https://blog.ne0xsec.cn/posts/aefb/</id>
     <published>2025-12-16T08:03:12.000Z</published>
-    <updated>2025-12-17T06:14:16.177Z</updated>
+    <updated>2025-12-17T06:14:56.998Z</updated>
     
     
     
@@ -46,7 +46,9 @@
     <category term="工具篇" scheme="https://blog.ne0xsec.cn/categories/%E5%B7%A5%E5%85%B7%E7%AF%87/"/>
     
     
-    <category term="工具合集,BurpSuite" scheme="https://blog.ne0xsec.cn/tags/%E5%B7%A5%E5%85%B7%E5%90%88%E9%9B%86-BurpSuite/"/>
+    <category term="工具合集" scheme="https://blog.ne0xsec.cn/tags/%E5%B7%A5%E5%85%B7%E5%90%88%E9%9B%86/"/>
+    
+    <category term="BurpSuite" scheme="https://blog.ne0xsec.cn/tags/BurpSuite/"/>
     
   </entry>
   
