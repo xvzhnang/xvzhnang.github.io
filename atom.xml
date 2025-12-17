@@ -6,7 +6,7 @@
   <link href="https://blog.ne0xsec.cn/atom.xml" rel="self"/>
   
   <link href="https://blog.ne0xsec.cn/"/>
-  <updated>2025-12-17T06:04:25.173Z</updated>
+  <updated>2025-12-17T06:14:06.421Z</updated>
   <id>https://blog.ne0xsec.cn/</id>
   
   <author>
@@ -21,11 +21,15 @@
     <link href="https://blog.ne0xsec.cn/posts/86a3/"/>
     <id>https://blog.ne0xsec.cn/posts/86a3/</id>
     <published>2025-12-17T06:04:25.000Z</published>
-    <updated>2025-12-17T06:04:25.173Z</updated>
+    <updated>2025-12-17T06:14:06.421Z</updated>
     
     
     
     
+    <category term="工具篇" scheme="https://blog.ne0xsec.cn/categories/%E5%B7%A5%E5%85%B7%E7%AF%87/"/>
+    
+    
+    <category term="工具合集,yakit" scheme="https://blog.ne0xsec.cn/tags/%E5%B7%A5%E5%85%B7%E5%90%88%E9%9B%86-yakit/"/>
     
   </entry>
   
@@ -34,13 +38,15 @@
     <link href="https://blog.ne0xsec.cn/posts/aefb/"/>
     <id>https://blog.ne0xsec.cn/posts/aefb/</id>
     <published>2025-12-16T08:03:12.000Z</published>
-    <updated>2025-12-17T04:40:40.562Z</updated>
+    <updated>2025-12-17T06:14:16.177Z</updated>
     
     
     
     
+    <category term="工具篇" scheme="https://blog.ne0xsec.cn/categories/%E5%B7%A5%E5%85%B7%E7%AF%87/"/>
     
-    <category term="工具合集" scheme="https://blog.ne0xsec.cn/tags/%E5%B7%A5%E5%85%B7%E5%90%88%E9%9B%86/"/>
+    
+    <category term="工具合集,BurpSuite" scheme="https://blog.ne0xsec.cn/tags/%E5%B7%A5%E5%85%B7%E5%90%88%E9%9B%86-BurpSuite/"/>
     
   </entry>
   
