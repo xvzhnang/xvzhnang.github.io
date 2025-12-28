@@ -6,7 +6,7 @@
   <link href="https://blog.ne0xsec.cn/atom.xml" rel="self"/>
   
   <link href="https://blog.ne0xsec.cn/"/>
-  <updated>2025-12-28T14:43:25.592Z</updated>
+  <updated>2025-12-28T14:46:49.196Z</updated>
   <id>https://blog.ne0xsec.cn/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>2025CISCN暨长城杯</title>
+    <title>【 比赛篇  CTF 】2025CISCN暨长城杯</title>
     <link href="https://blog.ne0xsec.cn/posts/bb60/"/>
     <id>https://blog.ne0xsec.cn/posts/bb60/</id>
     <published>2025-12-28T12:54:22.000Z</published>
-    <updated>2025-12-28T14:43:25.592Z</updated>
+    <updated>2025-12-28T14:46:49.196Z</updated>
     
     
       
@@ -34,6 +34,12 @@
     
     
     
+    <category term="CTF" scheme="https://blog.ne0xsec.cn/categories/CTF/"/>
+    
+    
+    <category term="CTF" scheme="https://blog.ne0xsec.cn/tags/CTF/"/>
+    
+    <category term="比赛篇" scheme="https://blog.ne0xsec.cn/tags/%E6%AF%94%E8%B5%9B%E7%AF%87/"/>
     
   </entry>
   
