@@ -6,7 +6,7 @@
   <link href="https://blog.ne0xsec.cn/atom.xml" rel="self"/>
   
   <link href="https://blog.ne0xsec.cn/"/>
-  <updated>2025-12-29T05:12:34.633Z</updated>
+  <updated>2026-01-17T08:52:16.935Z</updated>
   <id>https://blog.ne0xsec.cn/</id>
   
   <author>
@@ -17,11 +17,30 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>【 比赛篇  CTF 】2025CISCN暨长城杯</title>
+    <title>【学习篇 | PHP专栏】php语言基础</title>
+    <link href="https://blog.ne0xsec.cn/posts/8d10/"/>
+    <id>https://blog.ne0xsec.cn/posts/8d10/</id>
+    <published>2026-01-16T11:07:12.000Z</published>
+    <updated>2026-01-17T08:52:16.935Z</updated>
+    
+    
+    
+    
+    <category term="学习篇" scheme="https://blog.ne0xsec.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AF%87/"/>
+    
+    
+    <category term="学习篇" scheme="https://blog.ne0xsec.cn/tags/%E5%AD%A6%E4%B9%A0%E7%AF%87/"/>
+    
+    <category term="PHP" scheme="https://blog.ne0xsec.cn/tags/PHP/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【 比赛篇 | CTF 】2025CISCN暨长城杯</title>
     <link href="https://blog.ne0xsec.cn/posts/bb60/"/>
     <id>https://blog.ne0xsec.cn/posts/bb60/</id>
     <published>2025-12-28T12:54:22.000Z</published>
-    <updated>2025-12-29T05:12:34.633Z</updated>
+    <updated>2026-01-18T09:21:34.614Z</updated>
     
     
       
