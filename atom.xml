@@ -6,7 +6,7 @@
   <link href="https://blog.ne0xsec.cn/atom.xml" rel="self"/>
   
   <link href="https://blog.ne0xsec.cn/"/>
-  <updated>2026-01-19T09:44:48.502Z</updated>
+  <updated>2026-01-19T09:55:04.045Z</updated>
   <id>https://blog.ne0xsec.cn/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://blog.ne0xsec.cn/posts/1a13/"/>
     <id>https://blog.ne0xsec.cn/posts/1a13/</id>
     <published>2026-01-19T09:37:51.000Z</published>
-    <updated>2026-01-19T09:44:48.502Z</updated>
+    <updated>2026-01-19T09:55:04.045Z</updated>
     
     
       
@@ -38,9 +38,7 @@
     <category term="markdown语法" scheme="https://blog.ne0xsec.cn/categories/markdown%E8%AF%AD%E6%B3%95/"/>
     
     
-    <category term="markdown" scheme="https://blog.ne0xsec.cn/tags/markdown/"/>
-    
-    <category term="公式" scheme="https://blog.ne0xsec.cn/tags/%E5%85%AC%E5%BC%8F/"/>
+    <category term="markdown，公式语法" scheme="https://blog.ne0xsec.cn/tags/markdown%EF%BC%8C%E5%85%AC%E5%BC%8F%E8%AF%AD%E6%B3%95/"/>
     
   </entry>
   
